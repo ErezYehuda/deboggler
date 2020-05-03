@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Boggle Solver</title>
+    <link rel="stylesheet" href="external/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/display_board.css">
+    <script src="external/vue/vue.min.js"></script>
+    <script src="js/boggle.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div id="ui" class="container-fluid">
+            <div class="row">
+                <div id="board-panel" class="panel col-md-12 col-lg-4">
+                    <div id="tile-wrapper" class="row">
+                        <div v-for="(letter, idx) in letters" class="tile col-3" :class="[is_selected_tile(idx), selected_tile_color(idx)]">
+                            <div class="thumbnail">
+                                <div class="square">
+                                    <div class="letter">{{letter == "Q" ? "Q(u)" : letter}}</div>
+                                    <div class="arrow" :class="[next_letter_direction(idx)]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="control-panel" class="panel col-md-12 col-lg-8">
+                    <div id="control-wrapper" class="row">
+                        <div class="col-6">
+                            <label>Select word: <input type="text" v-model="selected_word" :class="[is_valid_word() ? 'valid' : 'invalid']" @blur="blur" @focus="focus"></label>
+                        </div>
+                        <div class="col-6">
+                            <label>Board: <input type="text" v-model="letters" :class="[is_valid_board()?'valid':'invalid']" @blur="blur" @focus="focus"></label>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="thumbnail" v-on:click="last_word()">
+                                        <div class="square button">
+                                            <div class="letter">Back</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="thumbnail" v-on:click="toggle_iterating()">
+                                        <div class="square button">
+                                            <div class="letter">
+                                                {{iteration_terminator? "Pause" : "Continue"}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="thumbnail" v-on:click="next_word()">
+                                        <div class="square button">
+                                            <div class="letter">Next</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="found_words" class="row">
+                <div class="col-4" v-for="word_list in words_by_length" v-bind:key="length">
+                    <div class="col-12">
+                        <h5>{{word_list.length}}-letter words</h5>
+                    </div>
+                    <div class="word col-12" v-for="word in word_list.words" v-on:click="select_word(word)">
+                        {{word}}
+                    </div>
+                    <div class="end_words col-12">&nbsp</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/display_board.js"></script>
+    <script src="js/scrabble_dictionary.js"></script>
+    <script src="js/post_dictionary.js"></script>
+</body>
+
+</html>

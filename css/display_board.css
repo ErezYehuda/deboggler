@@ -1,0 +1,399 @@
+:root {
+    --transition-color-0: #FF6161;
+    --transition-color-1: #FF935E;
+    --transition-color-2: #FFC75B;
+    --transition-color-3: #FFFD58;
+    --transition-color-4: #C8FF56;
+    --transition-color-5: #8FFF53;
+    --transition-color-6: #53FF50;
+    --transition-color-7: #4DFF85;
+    --transition-color-8: #4BFFBE;
+    --transition-color-9: #48FFFA;
+    --transition-color-10: #45C6FF;
+    --transition-color-11: #4287FF;
+    --transition-color-12: #4047FF;
+    --transition-color-13: #763DFF;
+    --transition-color-14: #B53AFF;
+    --transition-color-15: #F538FF;
+}
+
+.idx0 {
+    --transition-color: var(--transition-color-0);
+}
+
+
+
+.idx1 {
+    --transition-color: var(--transition-color-1)
+}
+
+
+
+.idx2 {
+    --transition-color: var(--transition-color-2)
+}
+
+
+
+.idx3 {
+    --transition-color: var(--transition-color-3)
+}
+
+
+
+.idx4 {
+    --transition-color: var(--transition-color-4)
+}
+
+
+
+.idx5 {
+    --transition-color: var(--transition-color-5)
+}
+
+
+
+.idx6 {
+    --transition-color: var(--transition-color-6)
+}
+
+
+
+.idx7 {
+    --transition-color: var(--transition-color-7)
+}
+
+
+
+.idx8 {
+    --transition-color: var(--transition-color-8)
+}
+
+
+
+.idx9 {
+    --transition-color: var(--transition-color-9)
+}
+
+
+
+.idx10 {
+    --transition-color: var(--transition-color-10)
+}
+
+
+
+.idx11 {
+    --transition-color: var(--transition-color-11)
+}
+
+
+
+.idx12 {
+    --transition-color: var(--transition-color-12)
+}
+
+
+
+.idx13 {
+    --transition-color: var(--transition-color-13)
+}
+
+
+
+.idx14 {
+    --transition-color: var(--transition-color-14)
+}
+
+
+
+.idx15 {
+    --transition-color: var(--transition-color-15)
+}
+
+#app {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+
+#ui {
+    margin-top: 15px;
+}
+
+.panel {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#board-panel {}
+
+#tile-wrapper {
+    border: 1px solid black;
+}
+
+
+.tile {
+    text-align: center;
+    border: 1px solid black;
+    background-color: #d0d0d0;
+    position: relative;
+    padding: 0px;
+}
+
+
+.tile.selected {
+    background-color: var(--transition-color);
+
+}
+
+.thumbnail::before {
+    content: "";
+    padding-top: 100%;
+    display: block;
+}
+
+
+.square {
+    font-weight: bolder;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    line-height: 100%;
+    text-align: center;
+}
+
+
+input.valid {
+    background-color: #84ff91;
+}
+
+input.invalid {
+    background-color: #ff8484;
+}
+
+.letter::before {
+    content: "";
+    display: block;
+    padding-top: 50%;
+}
+
+.arrow {
+    position: absolute;
+    display: none;
+}
+
+
+.selected .arrow {
+    display: initial;
+    z-index: 1000;
+}
+
+.selected .arrow.end {
+    display: none;
+}
+
+.arrow::before {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    z-index: 1001;
+}
+
+.arrow::after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    z-index: 1002;
+}
+
+/**/
+.arrow.top {
+    left: calc(50% - 12px);
+    top: -21px;
+}
+
+.arrow.top::before {
+    border-width: 0 12.5px 21.7px 12.5px;
+    border-color: transparent transparent black transparent;
+    top: -2px;
+}
+
+.arrow.top::after {
+    border-width: 0 12.5px 21.7px 12.5px;
+    border-color: transparent transparent var(--transition-color) transparent;
+}
+
+/**/
+.arrow.top-right {
+    right: 16px;
+    top: -9px;
+}
+
+.arrow.top-right::before {
+    border-style: solid;
+    border-width: 0 25px 25px 0;
+    border-color: transparent black transparent transparent;
+    top: -2px;
+    left: 2px;
+}
+
+.arrow.top-right::after {
+    border-style: solid;
+    border-width: 0 25px 25px 0;
+    border-color: transparent var(--transition-color) transparent transparent;
+}
+
+/**/
+.arrow.right {
+    top: calc(50% - 4px);
+    right: 0px;
+}
+
+.arrow.right::before {
+    border-style: solid;
+    border-width: 12.5px 0 12.5px 21.7px;
+    border-color: transparent transparent transparent black;
+    left: 2px;
+}
+
+.arrow.right::after {
+    border-style: solid;
+    border-width: 12.5px 0 12.5px 21.7px;
+    border-color: transparent transparent transparent var(--transition-color);
+}
+
+/**/
+.arrow.bottom-right {
+    right: 17px;
+    bottom: 15px;
+}
+
+.arrow.bottom-right::before {
+    border-style: solid;
+    border-width: 0 0 25px 25px;
+    border-color: transparent transparent black transparent;
+    top: 2px;
+    left: 2px;
+}
+
+.arrow.bottom-right::after {
+    border-style: solid;
+    border-width: 0 0 25px 25px;
+    border-color: transparent transparent var(--transition-color) transparent;
+
+}
+
+/**/
+.arrow.bottom {
+    left: calc(50% - 12px);
+    bottom: 0px;
+}
+
+.arrow.bottom::before {
+    border-style: solid;
+    border-width: 21.7px 12.5px 0 12.5px;
+    border-color: black transparent transparent transparent;
+    top: 2px;
+}
+
+.arrow.bottom::after {
+    border-style: solid;
+    border-width: 21.7px 12.5px 0 12.5px;
+    border-color: var(--transition-color) transparent transparent transparent;
+}
+
+/**/
+.arrow.bottom-left {
+    left: -10px;
+    bottom: 15px;
+}
+
+.arrow.bottom-left::before {
+    border-style: solid;
+    border-width: 25px 0 0 25px;
+    border-color: transparent transparent transparent black;
+    top: 2px;
+    left: -2px;
+}
+
+.arrow.bottom-left::after {
+    border-style: solid;
+    border-width: 25px 0 0 25px;
+    border-color: transparent transparent transparent var(--transition-color);
+}
+
+/**/
+.arrow.left {
+    top: calc(50% - 4px);
+    left: -21px;
+}
+
+.arrow.left::before {
+    border-style: solid;
+    border-width: 12.5px 21.7px 12.5px 0;
+    border-color: transparent black transparent transparent;
+    left: -2px;
+}
+
+.arrow.left::after {
+    border-style: solid;
+    border-width: 12.5px 21.7px 12.5px 0;
+    border-color: transparent var(--transition-color) transparent transparent;
+}
+
+/**/
+.arrow.top-left {
+    left: -11px;
+    top: -9px;
+}
+
+.arrow.top-left::before {
+    border-style: solid;
+    border-width: 25px 25px 0 0;
+    border-color: black transparent transparent transparent;
+    left: -2px;
+    top: -2px;
+}
+
+.arrow.top-left::after {
+    border-style: solid;
+    border-width: 25px 25px 0 0;
+    border-color: var(--transition-color) transparent transparent transparent;
+}
+
+/**/
+
+#control-panel {
+    border: 2px solid black;
+
+}
+
+#control-wrapper {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+#found_words {
+    max-height: 410px;
+    overflow-y: scroll;
+    border: 2px solid black;
+    border-bottom: 0px;
+}
+
+.word {
+    cursor: pointer;
+}
+
+.end_words {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+
+.button {
+    border: 2px solid black;
+    border-radius: 10%;
+}
