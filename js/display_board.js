@@ -148,6 +148,9 @@ var app = new Vue({
             return Object.getOwnPropertyNames(words_by_length)
                 .map(length => ({ "length": length, "words": words_by_length[length] }))
                 .reverse();
+        },
+        missing_letters: function missing_letters(){
+            return new Array(16 - this.letters.length);
         }
     },
     mounted: function mounted() {
