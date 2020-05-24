@@ -387,6 +387,10 @@ input.invalid {
     cursor: pointer;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .end_words {
     border-top: 1px solid black;
     border-bottom: 1px solid black;

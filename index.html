@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <div style="display:none;">Boggle Solver</div>
     <div id="app">
         <div id="ui" class="container-fluid">
             <div class="row">
@@ -37,14 +38,14 @@
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-4">
-                                    <div class="thumbnail" v-on:click="last_word()">
+                                    <div class="thumbnail pointer" v-on:click="last_word()">
                                         <div class="square button">
                                             <div class="letter">Back (J)</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="thumbnail" v-on:click="toggle_iterating()">
+                                    <div class="thumbnail pointer" v-on:click="toggle_iterating()">
                                         <div class="square button">
                                             <div class="letter">
                                                 {{iteration_terminator? "Pause" : "Continue"}} (K)
@@ -53,7 +54,7 @@
                                     </div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="thumbnail" v-on:click="next_word()">
+                                    <div class="thumbnail pointer" v-on:click="next_word()">
                                         <div class="square button">
                                             <div class="letter">Next (L)</div>
                                         </div>
